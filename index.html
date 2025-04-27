@@ -3,22 +3,527 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IonQ Coin</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>IonQ Coin - Supporting the Future of Quantum Computing</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    /* Updated styles.css content */
+    body {
+      margin: 0;
+      font-family: 'Cal Sans', 'Roboto', 'Arial', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      /* padding: 20px; */
+    }
+
+    header {
+      margin-bottom: 5px;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #333;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      margin: 20px 0;
+    }
+
+    /* Navbar custom styles - white theme */
+    .navbar-custom {
+      background: #ffffff;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      padding: 0.25rem 1rem;
+      /* height: 60px; */
+    }
+
+    .navbar-custom .navbar-brand {
+      color: #333;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-custom .navbar-brand img {
+      height: 40px;
+      width: auto;
+    }
+
+    .navbar-custom .navbar-nav .nav-link {
+      color: #333;
+      font-weight: 500;
+      padding: 0.7rem 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .navbar-custom .navbar-nav .nav-link i {
+      font-size: 1.2rem;
+      margin-right: 5px;
+    }
+
+    .navbar-custom .navbar-nav .nav-link:hover, 
+    .navbar-custom .navbar-nav .nav-link.active {
+      color: #0073e6;
+    }
+
+    .navbar-toggler {
+      border: none;
+      padding: 0.25rem 0.5rem;
+    }
+
+    /* Section Styles */
+    .section-title {
+      font-weight: 700;
+      color: #333;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .divider {
+      max-width: 100px;
+      border-width: 2px;
+      border-color: #0073e6;
+      margin: 1.5rem auto;
+      opacity: 0.7;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: #f8f9fa;
+      color: #333;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section h1 {
+      color: #333;
+    }
+
+    .hero-section .lead {
+      color: #333;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background-color: #f8f9fa;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: #0073e6;
+    }
+
+    .contact-item a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-item a:hover {
+      color: #0073e6;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-20px) translateX(10px) rotate(90deg);
+      }
+      50% {
+        transform: translateY(-40px) translateX(20px) rotate(180deg);
+      }
+      75% {
+        transform: translateY(-20px) translateX(30px) rotate(270deg);
+      }
+      100% {
+        transform: translateY(0) translateX(40px) rotate(360deg);
+      }
+    }
+
+    /* Card Hover Effects */
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Roadmap Timeline */
+    .timeline .card {
+      border-radius: 0.5rem;
+    }
+
+    .timeline .card-header {
+      background: #343434;
+      color: white;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    /* Footer Link Hover Effects */
+    footer {
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    footer a {
+      transition: color 0.3s, transform 0.3s;
+      display: inline-block;
+      color: #0073e6 !important;
+    }
+
+    footer a:hover {
+      color: #0056b3 !important;
+      transform: translateX(3px);
+    }
+
+    /* Investment Risk Section - Less prominent */
+    #risk {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    #risk .card {
+      border: 1px solid #ddd;
+    }
+
+    #risk .card-header {
+      background-color: #f8f9fa;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Modern button styles */
+    .btn {
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #0073e6;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 115, 230, 0.3);
+    }
+
+    .btn-outline-secondary {
+      border-width: 2px;
+      border-color: #666;
+      color: #666;
+    }
+
+    .btn-outline-secondary:hover {
+      background: #666;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Animation Effects */
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Modern alert style */
+    .alert {
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img src="logo.png" alt="IonQ Coin Logo" class="logo">
-      <h1>IonQ Coin</h1>
-    </header>
-    <main>
-      <p class="description">
-        Welcome to IonQ Coin! A revolutionary platform for quantum computing and cryptocurrency enthusiasts. Explore the endless possibilities with IonQ Coin.
-      </p>
-      <a href="document.pdf" target="_blank" class="pdf-link">View PDF Document</a>
-    </main>
-  </div>
-  <script src="script.js"></script>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="ionq_logo.png" alt="IonQ Coin Logo" class="logo me-2">
+        <span>IonQ Coin</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home"><i class="fas fa-home"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#roadmap"><i class="fas fa-map"></i> Roadmap</a></li>
+          <li class="nav-item"><a class="nav-link" href="#whitepaper"><i class="fas fa-file-pdf"></i> Whitepaper</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="py-5 text-center hero-section" style="background-color: #343434;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 fw-bold mb-4" style="color: #ffffff;">IonQ Coin</h1>
+          <p class="lead mb-4" style="color: #ffffff;">Rooting for IonQ and the quantum future—powered by passion, not profit</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <!-- <a href="#whitepaper" class="btn btn-primary btn-lg px-4 gap-3"><i class="fas fa-file-pdf me-2"></i>View Whitepaper</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center mb-5">
+          <h2 class="section-title">About IonQ Coin</h2>
+          <hr class="divider my-4" />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p class="text-muted">IonQ Coin root for the growth of IonQ's quantum computing technology. We believe in the future of quantum computing and its potential to revolutionize various industries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5 contact-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center mb-5">
+          <h2 class="section-title">Contact Us</h2>
+          <hr class="divider my-4" />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:ionqcoin@gmail.com">ionqcoin@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-telegram"></i>
+            <a href="https://t.me/ionqcoin" target="_blank">Join our Telegram</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-twitter"></i>
+            <a href="https://x.com/ionqcoin" target="_blank">Follow us on Twitter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap" class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center mb-5">
+          <h2 class="section-title">Development Roadmap</h2>
+          <hr class="divider my-4" />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="timeline">
+            <div class="card mb-3">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Q1-Q2 2025</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-check-circle text-success me-2"></i> Project launch</li>
+                  <li><i class="fas fa-check-circle text-success me-2"></i> Mainnet release</li>
+                  <li><i class="fas fa-check-circle text-success me-2"></i> Initial partnerships</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Q3 2025 and Beyond</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-spinner text-primary me-2"></i> Under Planning</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="whitepaper" class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center mb-5">
+          <h2 class="section-title">Whitepaper</h2>
+          <hr class="divider my-4" />
+        </div>
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-6">
+          <div class="card shadow">
+            <div class="card-body p-5">
+              <i class="fas fa-file-pdf fa-5x text-primary mb-4"></i>
+              <h3 class="mb-3">IonQ Coin Whitepaper</h3>
+              <p class="text-muted mb-4">Download our whitepaper for more information about our vision and plans.</p>
+              <a target="_blank" class="btn btn-primary btn-lg">
+                <i class="fas fa-download me-2"></i>Download Whitepaper
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="risk" class="py-3 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card shadow-sm border-light">
+            <div class="card-body">
+              <small class="text-muted">
+                <p class="mb-2">Legal Notice: The content of the website is not intended to solicit the sale or purchase of tokens. IonQ Coin is publishing this website to gather public feedback and opinions. Documents may include updated versions that could differ significantly from the current document.</p>
+                <p class="mb-0">Nothing in this website should be treated or construed as a guarantee or promise regarding how IonQ Coin's business or tokens will develop, or the utility or value of IonQ Coin tokens. This website represents IonQ Coin's current plans, which may change at its discretion, and several factors for success that are beyond IonQ Coin's control, including market-based factors within the data and digital asset industry. All statements about future events are based entirely on the analysis of IonQ Coin described in this website. This analysis may not be accurate.</p>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h5>IonQ Coin</h5>
+          <p class="small">Rooting for IonQ and the quantum future—powered by passion, not profit.</p>
+        </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="mailto:ionqcoin@gmail.com"><i class="fas fa-envelope me-2"></i>ionqcoin@gmail.com</a></li>
+            <li><a href="https://t.me/ionqcoin"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+            <li><a href="https://x.com/ionqcoin"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>Legal Notice</h5>
+          <p class="small">Information provided on this website is not investment advice, and investment decisions should be made at your own risk.</p>
+        </div>
+      </div>
+      <hr class="my-4">
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Updated script.js content with white particle background
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("IonQ Coin page loaded successfully!");
+      
+      // Smooth scrolling effect
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 60,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Active navigation item based on scroll position
+      const sections = document.querySelectorAll('section');
+      const navItems = document.querySelectorAll('.navbar-nav .nav-link');
+      
+      function setActiveNavItem() {
+        let currentSection = '';
+        const scrollPosition = window.scrollY;
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+        
+        navItems.forEach(item => {
+          item.classList.remove('active');
+          if (currentSection && item.getAttribute('href') === `#${currentSection}`) {
+            item.classList.add('active');
+          }
+        });
+      }
+      
+      // Initial checks and event listeners
+      setActiveNavItem();
+      
+      window.addEventListener('scroll', () => {
+        setActiveNavItem();
+      });
+    });
+  </script>
 </body>
 </html>
